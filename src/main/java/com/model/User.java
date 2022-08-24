@@ -1,10 +1,8 @@
 package com.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,7 +12,10 @@ public class User {
     private String name;
     private String phone;
     private String address;
+    private String username;
     private String pass;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<UserRole> roles;
 
     public int getId() {
         return id;
@@ -56,13 +57,32 @@ public class User {
         this.pass = pass;
     }
 
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<UserRole> roles) {
+        this.roles = roles;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", username='" + username + '\'' +
                 ", pass='" + pass + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 }

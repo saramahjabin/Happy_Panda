@@ -1,4 +1,0 @@
-com\controller\HomeController.class
-com\dao\UserDao.class
-com\model\User.class
-com\service\UserService.class

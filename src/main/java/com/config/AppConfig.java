@@ -1,7 +1,10 @@
 package com.config;
 
+import com.model.User;
+import com.model.UserRole;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +30,8 @@ import java.util.Properties;
 public class AppConfig {
     @Autowired
     private Environment env;
+    @Autowired
+    private ApplicationContext appContext;
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -40,11 +45,29 @@ public class AppConfig {
         return new HibernateTemplate(sessionFactory());
     }
 
+    /*@Bean
+    public LocalSessionFactoryBean hibernate5SessionFactoryBean(){
+        LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
+        localSessionFactoryBean.setDataSource((DataSource) appContext.getBean("DataSource"));
+        localSessionFactoryBean.setAnnotatedClasses(
+                User.class,
+                UserRole.class
+        );
+
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+        //properties.put("hibernate.current_session_context_class","thread");
+        properties.put("hibernate.hbm2ddl.auto","update");
+        properties.put("hibernate.show_sql","true");
+
+        localSessionFactoryBean.setHibernateProperties(properties);
+        return localSessionFactoryBean;
+    }*/
     @Bean
-    public SessionFactory sessionFactory() {
+   public SessionFactory sessionFactory() {
         LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
         lsfb.setDataSource(getDataSource());
-        lsfb.setPackagesToScan("com.model");
+        lsfb.setPackagesToScan("com");
         lsfb.setHibernateProperties(hibernateProperties());
         try {
             lsfb.afterPropertiesSet();
@@ -54,7 +77,7 @@ public class AppConfig {
         return lsfb.getObject();
     }
 
-    @Bean
+    @Bean(name = "DataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");

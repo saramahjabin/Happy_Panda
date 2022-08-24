@@ -12,4 +12,10 @@ public class UserService {
     public void createUser(User user){
       this.userDao.saveUser(user);
     }
+    public User fetchUser(int uid){
+        return this.userDao.getUser(uid);
+    }
+    public User fetchUserByUsername(String username){
+        return this.userDao.getUserByUsername(username);
+    }
 }
