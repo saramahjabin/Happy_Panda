@@ -20,7 +20,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @ComponentScan(basePackageClasses = UserDetailsServiceImpl.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-
     @Autowired
     UserDetailsService userDetailsService;
 
@@ -28,24 +27,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       /* http
-                .authorizeRequests().antMatchers("/registration").permitAll()
-                .and()
-                .authorizeRequests().anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login").permitAll()
-                .and()
-                .logout().permitAll();*/
+
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/api/**")
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/api/login")
                 .loginProcessingUrl("/authenticate")
+                .defaultSuccessUrl("/home", true)
                 .permitAll()
                 .and()
                 .logout().permitAll()

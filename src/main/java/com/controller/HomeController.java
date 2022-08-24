@@ -1,9 +1,7 @@
 package com.controller;
 
-import com.model.User;
-import com.model.UserRole;
-import com.service.UserService;
-import com.service.userRoleService;
+import com.model.*;
+import com.service.*;
 import com.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,11 +20,13 @@ public class HomeController {
     private UserService userService;
     @Autowired
     userRoleService userRoleService;
+    @Autowired
+    ProductService productService;
+    @Autowired
+    RestaurantService restaurantService;
+    @Autowired
+    CartService cartService;
 
-    @GetMapping("/")
-    public String homePage() {
-        return "home";
-    }
     @RequestMapping("/home")
     public String home(){
        System.out.println("This is home URL");
@@ -41,6 +41,20 @@ public class HomeController {
     public String about(){
         System.out.println("This is about URL");
         return "About";
+    }
+    @RequestMapping("/Cart")
+    public String cart(Model m){
+        List<Cart>  carts = cartService.fetchCart();
+        System.out.println("This is cart URL");
+        m.addAttribute("carts",carts);
+        return "Cart";
+    }
+    @RequestMapping(path="/addToCart", method= RequestMethod.POST)
+    public String Addtocart(@ModelAttribute Cart cart, Model model){
+        System.out.println(cart);
+        model.addAttribute("cart",cart);
+        this.cartService.createCart(cart);
+        return "home";
     }
     @RequestMapping("/registration")
     public String registration(){
@@ -70,4 +84,17 @@ public class HomeController {
         return "redirect:/login";
 
     }
+
+    @RequestMapping(path="/FoodList", method= RequestMethod.POST)
+    public String searchFoodform(@RequestParam("foodName") String foodName, Model model){
+        Product product = productService.fetchProductByName(foodName);
+        System.out.println(product);
+        System.out.println(product.getRestaurant_id());
+        Restaurant restaurant = restaurantService.fetchRestaurantById(product.getRestaurant_id());
+        System.out.println(restaurant);
+        model.addAttribute("product",product);
+        model.addAttribute("restaurant",restaurant);
+        return "FoodList";
+    }
+
 }

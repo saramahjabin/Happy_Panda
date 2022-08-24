@@ -33,7 +33,6 @@ public class UserDao {
         this.hibernateTemplate.delete(u);
     }
     public User getUser(int uid){
-       // this.hibernateTemplate.get
         return this.hibernateTemplate.get(User.class,uid) ;
     }
     @Transactional

@@ -29,24 +29,7 @@ public class UserRoleDao {
                 .uniqueResult();*/
     }
 
-   /* @Autowired
-    private HibernateTemplate hibernateTemplate;
-    @Transactional
-    public UserRole getUserRole() {
-        return this.hibernateTemplate.get(UserRole.class, 1);
-    }
-    /*
-    @Autowired
-    private SessionFactory sessionFactory;
 
-    @Transactional
-    public UserRole getRoleUser() {
-        return (UserRole) sessionFactory
-                .getCurrentSession()
-                .createCriteria(UserRole.class)
-                .add(Restrictions.eq("roleName", "ROLE_USER"))
-                .uniqueResult();
-    }*/
 
 
 }
