@@ -116,42 +116,42 @@
 								<div class="input-field">
 								<label for="name"></label>
 								<input
-									type="text" name="name" id="name" placeholder="Your Name" />
+									type="text" name="name" id="name" placeholder="Your Name" required/>
 								</div>
 							</div>
 							<div class="field email-field">
 								<div class="input-field">
 								<label for="phone"></label>
 								<input
-									type="text" name="phone" id="phone" placeholder="Your Phone Number" />
+									type="text" name="phone" id="phone" placeholder="Your Phone Number"required />
 								</div>
 							</div>
 									<div class="field email-field">
 										<div class="input-field">
 								<label for="address"></label>
 								<input
-									type="text" name="address" id="address" placeholder="Your Address" />
+									type="text" name="address" id="address" placeholder="Your Address" required/>
 										</div>
 									</div>
 							<div class="field email-field">
 								<div class="input-field">
 								<label for="username"></label>
 								<input
-										type="text" name="username" id="username" placeholder="Your Username" />
+										type="text" name="username" id="username" placeholder="Your Username" required />
 								</div>
 							</div>
 							<div class="field create-password">
 								<div class="input-field">
 								<label for="pass"></label>
 								<input type="password" name="pass" id="pass"
-									placeholder="Your password" />
+									placeholder="Your password" required/>
 								</div>
 							</div>
 							<div class="field confirm-password">
 								<div class="input-field">
 								<label for="re_pass"></label>
 								<input type="password" name="re_pass" id="re_pass"
-									   placeholder="Retype your password" />
+									   placeholder="Retype your password" required/>
 								</div>
 							</div>
 							<div class="input-field button">
@@ -159,7 +159,7 @@
 									 value="Register" />
 							</div>
 							<h4 style="alignment: center">
-								<a href="login" >I am already
+								<a href="api/start/login" >I am already
 									member</a>
 							</h4>
 						</form>

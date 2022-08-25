@@ -13,6 +13,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -27,7 +29,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(basePackages="com")
 //@PropertySource("classpath:database.properties")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer {
     @Autowired
     private Environment env;
     @Autowired
@@ -39,30 +41,18 @@ public class AppConfig {
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("/css/");
+        registry.addResourceHandler("/images/**")
+                .addResourceLocations("/images/");     }
 
     @Bean
     public HibernateTemplate hibernateTemplate() {
         return new HibernateTemplate(sessionFactory());
     }
 
-    /*@Bean
-    public LocalSessionFactoryBean hibernate5SessionFactoryBean(){
-        LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
-        localSessionFactoryBean.setDataSource((DataSource) appContext.getBean("DataSource"));
-        localSessionFactoryBean.setAnnotatedClasses(
-                User.class,
-                UserRole.class
-        );
 
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
-        //properties.put("hibernate.current_session_context_class","thread");
-        properties.put("hibernate.hbm2ddl.auto","update");
-        properties.put("hibernate.show_sql","true");
-
-        localSessionFactoryBean.setHibernateProperties(properties);
-        return localSessionFactoryBean;
-    }*/
     @Bean
    public SessionFactory sessionFactory() {
         LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();

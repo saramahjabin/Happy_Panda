@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -585,9 +589,9 @@
         <a href="#popular">popular</a>
         <a href="#gallery">gallery</a>
         <a href="#review">review</a>
-        <a href="#order">order</a>
+        <a href="api/start/login">order</a>
         <a href="registration">Register</a>
-        <a href="login">LogIn</a>
+        <a href="api/start/login">Login</a>
     </nav>
 
 </header>
@@ -601,11 +605,11 @@
     <div class="content">
         <h3>food made with love</h3>
         <p>Food change your mood and create happiness in your mind.</p>
-        <a href="#" class="btn">order now</a>
+        <a href="api/start/login" class="btn">order now</a>
     </div>
 
     <div class="image">
-        <img src="/webapp/images/home-img.png" alt="">
+        <img src="${pageContext.request.contextPath}/images/home-img.png" alt="">
     </div>
 
 </section>
@@ -621,52 +625,52 @@
     <div class="box-container">
 
         <div class="box">
-            <img class="image" src="/webapp/WEB-INF/view/images/s-img-1.jpg" alt="">
+            <img class="image" src="${pageContext.request.contextPath}/images/s-img-1.jpg" alt="">
             <div class="content">
-              <!--  <img src="/webapp/WEB-INF/view/images/imagess-1.png" alt="">-->
-                <img src="<c:url value="/webapp/WEB-INF/view/images/imagess-1.png" />" alt="" />
+
+                <img src="${pageContext.request.contextPath}/images/imagess-1.png" alt="" />
                 <h3>tasty burger</h3>
-                <p>Love you man! if you like burger.</p>
+                <p>Burger</p>
             </div>
         </div>
         <div class="box">
-            <img class="image" src="../webapp/images/s-img-2.jpg" alt="">
+            <img class="image" src=".${pageContext.request.contextPath}/images/s-img-2.jpg" alt="">
             <div class="content">
-                <img src="/webapp/images/s-2.png" alt="">
+                <img src="${pageContext.request.contextPath}/images/s-2.png" alt="">
                 <h3>tasty pizza</h3>
-                <p>Jf na thakel pizza te 20% discount pab. </p>
+                <p>Pizza </p>
             </div>
         </div>
         <div class="box">
-            <img class="image" src="/images/s-img-3.jpg" alt="">
+            <img class="image" src="${pageContext.request.contextPath}/images/s-img-3.jpg" alt="">
             <div class="content">
-                <img src="s-3.png" alt="">
+                <img src="${pageContext.request.contextPath}/images/s-3.png" alt="">
                 <h3>cold ice-cream</h3>
-                <p>If you don't buy our product you didn't deserve a girl friend</p>
+                <p>Ice-Cream</p>
             </div>
         </div>
         <div class="box">
-            <img class="image" src="s-img-4.jpg" alt="">
+            <img class="image"${pageContext.request.contextPath}/images/ src="s-img-4.jpg" alt="">
             <div class="content">
-                <img src="s-4.png" alt="">
+                <img src="${pageContext.request.contextPath}/images/s-4.png" alt="">
                 <h3>cold drinks</h3>
-                <p>You ae so cute  if you test it regularlly.</p>
+                <p>Cold Drinks</p>
             </div>
         </div>
         <div class="box">
-            <img class="image" src="s-img-5.jpg" alt="">
+            <img class="image" src="${pageContext.request.contextPath}/images/s-img-5.jpg" alt="">
             <div class="content">
-                <img src="s-5.png" alt="">
+                <img src="${pageContext.request.contextPath}/images/s-5.png" alt="">
                 <h3>tasty sweets</h3>
-                <p>You become more and more sweet when you test it regularlly.</p>
+                <p>Tasty Sweets</p>
             </div>
         </div>
         <div class="box">
-            <img class="image" src="s-img-6.jpg" alt="">
+            <img class="image" src="${pageContext.request.contextPath}/images/s-img-6.jpg" alt="">
             <div class="content">
-                <img src="s-6.png" alt="">
+                <img src="${pageContext.request.contextPath}/images/s-6.png" alt="">
                 <h3>healty breakfast</h3>
-                <p>Good health good life. You deserve two jf</p>
+                <p>Good health good life</p>
             </div>
         </div>
 
@@ -686,7 +690,7 @@
 
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="p-1.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-1.jpg" alt="">
             <h3>tasty burger</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -695,11 +699,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="p-2.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-2.jpg" alt="">
             <h3>tasty cakes</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -708,11 +712,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="login" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="p-3.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-3.jpg" alt="">
             <h3>tasty sweets</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -721,11 +725,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="login" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="p-4.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-4.jpg" alt="">
             <h3>tasty cupcakes</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -734,11 +738,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="login" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="p-5.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-5.jpg" alt="">
             <h3>cold drinks</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -747,11 +751,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="login" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
         <div class="box">
             <span class="price"> $5 - $20 </span>
-            <img src="./view/p-6.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/p-6.jpg" alt="">
             <h3>cold ice-cream</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -760,7 +764,7 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="login" class="btn">order now</a>
+            <a href="api/start/login" class="btn">order now</a>
         </div>
 
     </div>
@@ -778,19 +782,19 @@
     <section class="steps">
 
         <div class="box">
-            <img src="step-1.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/step-1.jpg" alt="">
             <h3>choose your favorite food</h3>
         </div>
         <div class="box">
-            <img src="step-2.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/step-2.jpg" alt="">
             <h3>free and fast delivery</h3>
         </div>
         <div class="box">
-            <img src="step-3.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/step-3.jpg" alt="">
             <h3>easy payments methods</h3>
         </div>
         <div class="box">
-            <img src="step-4.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/step-4.jpg" alt="">
             <h3>and finally, enjoy your food</h3>
         </div>
 
@@ -809,75 +813,75 @@
     <div class="box-container">
 
         <div class="box">
-            <img src="g-1.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-1.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <p></p>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-2.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-2.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-3.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-3.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-4.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-4.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-5.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-5.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-6.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-6.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-7.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-7.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-8.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-8.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
         <div class="box">
-            <img src="g-9.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/images/g-9.jpg" alt="">
             <div class="content">
                 <h3>tasty food</h3>
                 <p>Desc.</p>
-                <a href="login" class="btn">ordern now</a>
+                <a href="api/start/login" class="btn">ordern now</a>
             </div>
         </div>
 
@@ -896,7 +900,7 @@
     <div class="box-container">
 
         <div class="box">
-            <img src="pic1.png" alt="">
+            <img src="${pageContext.request.contextPath}/images/pic1.png" alt="">
             <h3>Sara Mahjabin</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -908,7 +912,7 @@
             <p>Food is so good </p>
         </div>
         <div class="box">
-            <img src="pic2.png" alt="">
+            <img src="${pageContext.request.contextPath}/images/pic2.png" alt="">
             <h3>Musfiqur Rahman</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -920,8 +924,8 @@
             <p>It's give me pleasure.</p>
         </div>
         <div class="box">
-            <img src="pic3.png" alt="">
-            <h3>Harry poter</h3>
+            <img src="${pageContext.request.contextPath}/images/pic3.png" alt="">
+            <h3>Harry Potter</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -963,12 +967,45 @@
 <!-- scroll top button  -->
 <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
 
-<!-- loader
+
 <div class="loader-container">
-    <img src="1loader.gif" alt="">
+    <img src="${pageContext.request.contextPath}/images/1loader.gif" alt="">
 </div>
--->
+
 <!-- custom js file link  -->
-<!--<script src="script.js"></script>-->
+<script>
+    let menu = document.querySelector('#menu-bar');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () =>{
+
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+
+    }
+
+    window.onscroll = () =>{
+
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('active');
+
+        if(window.scrollY > 60){
+            document.querySelector('#scroll-top').classList.add('active');
+        }else{
+            document.querySelector('#scroll-top').classList.remove('active');
+        }
+
+    }
+
+    function loader(){
+        document.querySelector('.loader-container').classList.add('fade-out');
+    }
+
+    function fadeOut(){
+        setInterval(loader, 3000);
+    }
+
+    window.onload = fadeOut();
+</script>
 </body>
 </html>

@@ -383,13 +383,12 @@
     </header>
 
     <div class="container">
-
+<%   int t=0;%>
         <section id="cart">
             <c:forEach items="${carts}" var="c">
             <article class="product">
                 <header>
                     <a class="remove">
-                        <img src="./img/Burger.jpg" alt="">
 
                         <h3>Remove product</h3>
                     </a>
@@ -432,7 +431,10 @@
 
             <div class="right">
                 <h1 class="total">Total: <span>1015</span>Tk</h1>
-                <a class="btn">Checkout</a>
+                <!--<form method="post" action="FoodList" >
+                    <input type="hidden" id="totalprice" name="totalprice" value=${product.name}+>-->
+                <a class="btn" href="Order">Checkout</a>
+                <!--</form>-->
             </div>
 
         </div>
@@ -528,10 +530,6 @@
 
         window.setTimeout(function(){$(".is-open").removeClass("is-open")}, 1200);
 
-        $(".btn").click(function(){
-            check = true;
-            $(".remove").click();
-        });
     });
 </script>
 </body>
